@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACEN — Associação Caxiense de Esportes Náuticos | Canoagem em Caxias do Sul</title>
+<meta name="description" content="Há mais de 20 anos formando atletas e popularizando a canoagem na Serra Gaúcha. 848 pódios, prata mundial e projeto social de base. Agende sua aula teste.">
+<link rel="icon" type="image/png" href="logo-black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-profundo:#014E44;
+    --verde-profundo-alt:#023E37;
+    --lima:#D0FF73;
+    --lima-suave:#E3FFAA;
+    --esmeralda:#28EBA7;
+    --menta:#EBFEF8;
+    --menta-escura:#D7EDE6;
+    --carvao:#1A3234;
+    --branco:#FFFFFF;
+    --heading:'Hanken Grotesk', sans-serif;
+    --body:'Poppins', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    color:var(--carvao);
+    background:var(--menta);
+    line-height:1.65;
+    overflow-x:hidden;
+    font-weight:300;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  .eyebrow{
+    font-family:var(--heading);
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--esmeralda);
+    font-weight:700;
+  }
+
+  h1,h2,h3{
+    font-family:var(--heading);
+    font-weight:800;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+  }
+  h2{font-size:clamp(28px,4vw,42px); margin-bottom:20px;}
+  h3{font-size:22px;}
+  h4{font-family:var(--heading); text-transform:none; font-weight:700;}
+
+  .lede{font-size:18px; font-weight:300; color:#2A4744; max-width:640px;}
+
+  section{position:relative;}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:14px 26px;
+    font-family:var(--heading); font-weight:800; font-size:14px;
+    text-transform:uppercase; letter-spacing:0.03em;
+    border-radius:3px; transition:transform .2s, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--lima); color:var(--verde-profundo);}
+  .btn-primary:hover{box-shadow:0 8px 24px rgba(208,255,115,0.35);}
+  .btn-ghost{border:1.5px solid rgba(235,254,248,0.4); color:var(--branco);}
+  .btn-ghost:hover{border-color:var(--lima); color:var(--lima);}
+  .btn-dark{background:var(--verde-profundo); color:var(--lima);}
+  .btn-dark:hover{box-shadow:0 8px 24px rgba(1,78,68,0.3);}
+
+  /* ================= HEADER ================= */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(1,78,68,0.97);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 32px; max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand img{height:46px; width:auto;}
+  nav ul{display:flex; align-items:center; gap:28px; list-style:none;}
+  nav a{
+    font-family:var(--heading);
+    font-size:14px; color:rgba(235,254,248,0.85); font-weight:600;
+    text-transform:uppercase; letter-spacing:0.02em;
+    transition:color .2s;
+  }
+  nav a:hover{color:var(--lima);}
+  .nav-cta{
+    background:var(--lima); color:var(--verde-profundo) !important;
+    padding:10px 18px; border-radius:3px; font-weight:800;
+  }
+  .nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;}
+
+  @media (max-width:900px){
+    nav ul{
+      position:fixed; top:74px; right:-100%; flex-direction:column;
+      background:var(--verde-profundo); width:250px; height:calc(100vh - 74px);
+      padding:32px; gap:24px; transition:right .3s ease; align-items:flex-start;
+    }
+    nav ul.open{right:0;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    background:var(--verde-profundo); color:var(--menta);
+    padding:160px 0 90px; position:relative; overflow:hidden;
+  }
+  .hero .container{position:relative; z-index:2;}
+  .hero-ripples{position:absolute; inset:0; z-index:1; opacity:0.4;}
+  .hero h1{
+    color:var(--branco); font-size:clamp(36px,6vw,64px); margin:18px 0 22px; max-width:840px;
+  }
+  .hero h1 span{color:var(--lima);}
+  .hero .lede{color:rgba(235,254,248,0.82); font-size:19px; margin-bottom:36px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:20px;}
+  .hero-note{font-size:13px; color:rgba(235,254,248,0.55); margin-bottom:56px;}
+
+  .hero-stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+    border-top:1px solid rgba(235,254,248,0.15); padding-top:32px;
+  }
+  .hero-stat .num{font-family:var(--heading); font-size:clamp(24px,3.2vw,36px); color:var(--lima); font-weight:800;}
+  .hero-stat .label{font-size:13px; color:rgba(235,254,248,0.65); margin-top:4px;}
+  @media (max-width:700px){.hero-stats{grid-template-columns:repeat(2,1fr); row-gap:28px;}}
+
+  /* ================= SOBRE ================= */
+  .sobre{padding:110px 0; background:var(--menta);}
+  .sobre-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  .sobre-grid p{margin-bottom:16px; color:#2A4744; font-weight:300;}
+  .pillars{display:flex; flex-direction:column; gap:18px;}
+  .pillar{display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--menta-escura);}
+  .pillar-num{font-family:var(--heading); color:var(--verde-profundo); font-size:14px; font-weight:800; padding-top:3px;}
+  .pillar h4{font-size:17px; margin-bottom:4px;}
+  .pillar p{font-size:14.5px; color:#3D5854; margin:0; font-weight:300;}
+  .missao-tag{margin-top:28px; padding:22px 24px; background:var(--verde-profundo); color:var(--menta); border-left:4px solid var(--lima);}
+  .missao-tag .eyebrow{color:var(--lima); margin-bottom:8px; display:block;}
+  .missao-tag p{color:var(--branco); font-family:var(--heading); font-size:19px; margin:0; line-height:1.4; font-weight:700; text-transform:none;}
+  @media (max-width:860px){.sobre-grid{grid-template-columns:1fr;}}
+
+  /* ================= VÍDEOS ================= */
+  .videos{padding:110px 0; background:var(--carvao); color:var(--menta);}
+  .videos h2{color:var(--branco);}
+  .videos .lede{color:rgba(235,254,248,0.78);}
+  .video-principal{
+    margin-top:44px;
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+    border:1px solid rgba(235,254,248,0.15);
+    border-radius:4px;
+    background:#000;
+  }
+  .video-principal iframe{
+    position:absolute; top:0; left:0;
+    width:100%; height:100%; border:0;
+  }
+  .reels-header{
+    margin-top:64px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:16px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(235,254,248,0.15);
+  }
+  .reels-header h3{color:var(--branco); font-size:22px; text-transform:none;}
+  .reels-header p{font-size:14px; color:rgba(235,254,248,0.6); font-weight:300; margin-top:4px;}
+  .reels-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin-top:28px;
+  }
+  .reel-card{
+    position:relative;
+    display:block;
+    aspect-ratio:9/16;
+    background:linear-gradient(160deg, var(--verde-profundo), #012E29);
+    border:1px solid rgba(235,254,248,0.15);
+    border-radius:4px;
+    overflow:hidden;
+    transition:transform .25s, border-color .25s, box-shadow .25s;
+  }
+  .reel-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--lima);
+    box-shadow:0 12px 28px rgba(0,0,0,0.35);
+  }
+  .reel-card .reel-inner{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:14px; padding:20px; text-align:center;
+  }
+  .reel-play{
+    width:56px; height:56px; border-radius:50%;
+    background:var(--lima);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .25s;
+  }
+  .reel-card:hover .reel-play{transform:scale(1.1);}
+  .reel-play svg{width:22px; height:22px; fill:var(--verde-profundo); margin-left:3px;}
+  .reel-card .reel-label{
+    font-family:var(--heading); font-weight:700; font-size:14px;
+    color:var(--branco); text-transform:none;
+  }
+  .reel-card .reel-sub{
+    font-size:12px; color:rgba(235,254,248,0.55); font-weight:300;
+  }
+  .reel-card .reel-ig{
+    position:absolute; top:14px; right:14px;
+    font-size:11px; font-family:var(--heading); font-weight:700;
+    color:rgba(235,254,248,0.5); letter-spacing:0.06em; text-transform:uppercase;
+  }
+  @media (max-width:860px){.reels-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.reels-grid{grid-template-columns:1fr 1fr; gap:14px;}}
+  .videos-cta{margin-top:44px; text-align:center;}
+
+  /* ================= MODALIDADES ================= */
+  .modalidades{padding:110px 0; background:var(--branco);}
+  .mod-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; background:var(--menta-escura);}
+  .mod-card{background:var(--menta); padding:36px 30px; transition:background .25s, color .25s;}
+  .mod-card:hover{background:var(--verde-profundo); color:var(--menta);}
+  .mod-card:hover h4, .mod-card:hover .mod-tag{color:var(--lima);}
+  .mod-card:hover p{color:rgba(235,254,248,0.75);}
+  .mod-tag{font-family:var(--heading); font-size:12px; color:var(--verde-profundo); text-transform:uppercase; letter-spacing:0.08em; font-weight:800;}
+  .mod-card h4{font-size:21px; margin:10px 0 10px;}
+  .mod-card p{font-size:14.5px; color:#3D5854; font-weight:300;}
+  @media (max-width:860px){.mod-grid{grid-template-columns:1fr;}}
+
+  .equipe-tecnica{
+    margin-top:56px; padding:32px 34px; background:var(--menta); border:1px solid var(--menta-escura);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+  }
+  .equipe-tecnica h4{font-size:19px; margin-bottom:6px;}
+  .equipe-tecnica p{font-size:14.5px; color:#3D5854; max-width:520px; font-weight:300;}
+  .equipe-nomes{font-family:var(--heading); font-size:13.5px; font-weight:700; color:var(--verde-profundo); text-align:right; line-height:1.9;}
+
+  .mod-cta{margin-top:40px; text-align:center;}
+
+  /* ================= PROJETO JOVEM ================= */
+  .projeto{padding:90px 0; background:var(--esmeralda); color:var(--carvao);}
+  .projeto-inner{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  .projeto .eyebrow{color:var(--verde-profundo);}
+  .projeto h2{color:var(--verde-profundo);}
+  .projeto p{color:#0F3230; font-size:16px; font-weight:400;}
+  .projeto-facts{background:rgba(1,78,68,0.1); border:1px solid rgba(1,78,68,0.25); padding:28px;}
+  .fact-row{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(1,78,68,0.18); font-size:14.5px;}
+  .fact-row:last-child{border-bottom:none;}
+  .fact-row span:first-child{color:rgba(1,78,68,0.7);}
+  .fact-row span:last-child{font-family:var(--heading); font-weight:800; color:var(--verde-profundo); text-align:right;}
+  @media (max-width:860px){.projeto-inner{grid-template-columns:1fr;}}
+
+  /* ================= RESULTADOS ESPORTIVOS ================= */
+  .resultados{padding:110px 0; background:var(--menta);}
+  .resultados-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:48px; background:var(--menta-escura);}
+  .resultado-cell{background:var(--branco); padding:32px 24px; text-align:center;}
+  .resultado-cell .num{font-family:var(--heading); font-size:clamp(30px,3.4vw,42px); color:var(--verde-profundo); font-weight:800;}
+  .resultado-cell .label{font-size:12px; color:#3D5854; margin-top:8px; line-height:1.4; font-weight:600; text-transform:uppercase; letter-spacing:0.03em;}
+  @media (max-width:860px){.resultados-grid{grid-template-columns:repeat(2,1fr);}}
+  .resultados-split{margin-top:22px; font-size:14px; color:#3D5854; text-align:center; font-weight:300;}
+  .resultados-split b{color:var(--verde-profundo); font-weight:700;}
+  .resultados .missao-tag{margin-top:36px; max-width:760px; margin-left:auto; margin-right:auto;}
+  .resultados .missao-tag p{font-size:17px; font-weight:600;}
+  .resultados .missao-tag .fonte{display:block; margin-top:10px; font-family:var(--body); font-size:12.5px; font-weight:300; color:rgba(235,254,248,0.65); text-transform:none; letter-spacing:normal;}
+
+  /* ================= HISTÓRIA / TIMELINE ================= */
+  .historia{padding:110px 0; background:var(--verde-profundo); color:var(--menta);}
+  .historia h2{color:var(--branco);}
+  .timeline{margin-top:56px; position:relative; padding-left:36px;}
+  .timeline::before{content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:linear-gradient(to bottom, var(--lima), rgba(208,255,115,0.1));}
+  .tl-item{position:relative; padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:''; position:absolute; left:-36px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--lima); box-shadow:0 0 0 5px rgba(208,255,115,0.15);}
+  .tl-year{font-family:var(--heading); font-size:15px; color:var(--lima); font-weight:800; margin-bottom:6px; display:block;}
+  .tl-item h4{font-size:19px; margin-bottom:6px; color:var(--branco);}
+  .tl-item p{color:rgba(235,254,248,0.75); font-size:15px; max-width:640px; font-weight:300;}
+  .tl-item .badge{
+    display:inline-block; margin-top:10px; font-family:var(--heading); font-weight:700;
+    font-size:12px; color:var(--verde-profundo); background:var(--lima); padding:4px 10px; border-radius:3px;
+  }
+
+  /* ================= PATROCÍNIO ================= */
+  .patrocinio{padding:110px 0; background:var(--carvao); color:var(--menta);}
+  .patrocinio h2{color:var(--branco);}
+  .patrocinio .lede{color:rgba(235,254,248,0.78);}
+  .patro-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:52px;}
+  .patro-card{
+    background:rgba(235,254,248,0.05);
+    border:1px solid rgba(235,254,248,0.12);
+    padding:32px 28px;
+    border-radius:4px;
+  }
+  .patro-card .icon{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--lima);
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px;
+    margin-bottom:18px;
+  }
+  .patro-card h4{font-size:18px; color:var(--branco); margin-bottom:8px;}
+  .patro-card p{font-size:14.5px; color:rgba(235,254,248,0.72); font-weight:300;}
+  @media (max-width:860px){.patro-grid{grid-template-columns:1fr;}}
+  .patro-cta{
+    margin-top:52px;
+    background:var(--verde-profundo);
+    border:1px solid rgba(208,255,115,0.3);
+    border-radius:4px;
+    padding:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .patro-cta h3{color:var(--branco); text-transform:none; font-size:24px; margin-bottom:6px;}
+  .patro-cta p{color:rgba(235,254,248,0.75); font-size:15px; font-weight:300; max-width:520px;}
+
+  /* ================= PLANOS ================= */
+  .planos{padding:110px 0; background:var(--menta); text-align:center;}
+  .planos .eyebrow, .planos h2, .planos .lede{margin-left:auto;margin-right:auto;}
+  .planos .lede{text-align:center;}
+  .plano-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:56px; text-align:left;}
+  .plano-card{background:var(--branco); border:1px solid var(--menta-escura); padding:28px 24px; position:relative;}
+  .plano-card.destaque{border-color:var(--lima); box-shadow:0 12px 30px rgba(208,255,115,0.25);}
+  .plano-card .tag{font-family:var(--heading); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--verde-profundo); font-weight:800;}
+  .plano-card h4{font-size:20px; margin:10px 0 14px;}
+  .plano-card ul{list-style:none; margin-bottom:20px;}
+  .plano-card li{font-size:13.5px; color:#3D5854; padding:6px 0; border-bottom:1px dashed var(--menta-escura); font-weight:300;}
+  .plano-consulte{
+    display:inline-block; font-family:var(--heading); font-weight:700; font-size:12.5px;
+    color:var(--verde-profundo); border:1px solid var(--verde-profundo); padding:8px 14px; width:100%; text-align:center;
+    transition:background .2s, color .2s;
+  }
+  a.plano-consulte:hover{background:var(--verde-profundo); color:var(--lima);}
+  @media (max-width:900px){.plano-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.plano-grid{grid-template-columns:1fr;}}
+  .planos-cta{margin-top:48px;}
+  .planos-nota{margin-top:14px; font-size:13px; color:#5A6E69;}
+
+  /* ================= CONTATO ================= */
+  .contato{padding:110px 0; background:var(--verde-profundo); color:var(--menta);}
+  .contato-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:48px;}
+  .contato h2{color:var(--branco);}
+  .contato-info{display:flex; flex-direction:column; gap:22px;}
+  .info-row{display:flex; gap:16px; padding-bottom:20px; border-bottom:1px solid rgba(235,254,248,0.14);}
+  .info-row .k{
+    font-family:var(--heading); font-size:12px; color:rgba(235,254,248,0.55); text-transform:uppercase;
+    letter-spacing:0.06em; width:110px; flex-shrink:0; padding-top:2px; font-weight:700;
+  }
+  .info-row .v{font-size:15.5px; color:var(--menta); font-weight:300;}
+  .info-row .v a:hover{color:var(--lima);}
+  .mapa-frame{width:100%; height:100%; min-height:320px; border:1px solid rgba(235,254,248,0.2); filter:grayscale(0.2) contrast(1.05);}
+  @media (max-width:860px){.contato-grid{grid-template-columns:1fr;}}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--carvao); color:rgba(235,254,248,0.55); padding:32px 0; font-size:13px; font-weight:300;}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .footer-brand{display:flex; align-items:center; gap:10px;}
+  .footer-brand img{height:32px;}
+  footer a{color:rgba(235,254,248,0.75);}
+  footer a:hover{color:var(--lima);}
+
+  /* ================= WHATSAPP FLUTUANTE ================= */
+  .whats-float{
+    position:fixed; bottom:24px; right:24px; z-index:99;
+    width:58px; height:58px; border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    transition:transform .2s;
+  }
+  .whats-float:hover{transform:scale(1.08);}
+  .whats-float svg{width:30px; height:30px; fill:#fff;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand"><a href="#"><img src="logo-white.png" alt="ACEN — Associação Caxiense de Esportes Náuticos"></a></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#modalidades">Modalidades</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#patrocinio">Patrocínio</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a class="nav-cta" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20teste%20na%20ACEN." target="_blank" rel="noopener">Aula Teste</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <svg class="hero-ripples" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#D0FF73" stroke-width="1">
+      <circle cx="980" cy="180" r="60"/><circle cx="980" cy="180" r="110"/>
+      <circle cx="980" cy="180" r="165"/><circle cx="980" cy="180" r="225"/><circle cx="980" cy="180" r="290"/>
+    </g>
+    <g fill="none" stroke="#28EBA7" stroke-width="1" opacity="0.6">
+      <circle cx="150" cy="560" r="40"/><circle cx="150" cy="560" r="80"/><circle cx="150" cy="560" r="125"/>
+    </g>
+  </svg>
+  <div class="container">
+    <span class="eyebrow">Associação Caxiense de Esportes Náuticos · desde 2002</span>
+    <h1>Onde a canoagem gaúcha <span>ganhou o mundo</span></h1>
+    <p class="lede">Da Serra Gaúcha para pódios nacionais, sul-americanos, pan-americanos e mundiais. A ACEN forma atletas, recebeu seleções brasileiras e abriu no Brasil o caminho da paracanoagem — com espaço para quem quer competir e para quem só quer remar.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20teste%20na%20ACEN." target="_blank" rel="noopener">Agendar aula teste</a>
+      <a class="btn btn-ghost" href="#patrocinio">Seja um patrocinador</a>
+    </div>
+    <p class="hero-note">Aula teste combinada direto pelo WhatsApp · Equipamentos fornecidos pela ACEN</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">848</div><div class="label">Pódios em Finais (CBCa)</div></div>
+      <div class="hero-stat"><div class="num">90</div><div class="label">Associados ativos (2025)</div></div>
+      <div class="hero-stat"><div class="num">23</div><div class="label">Anos de história</div></div>
+      <div class="hero-stat"><div class="num">6</div><div class="label">Modalidades náuticas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOBRE ================= -->
+<section class="sobre" id="sobre">
+  <div class="container sobre-grid">
+    <div class="reveal">
+      <span class="eyebrow">Quem somos</span>
+      <h2>Uma associação náutica com missão social</h2>
+      <p>A ACEN nasceu em 21 de dezembro de 2002, criada por praticantes de canoagem de Caxias do Sul. A partir de 2004, sediou e executou o Projeto Navegar — programa federal que ensina canoagem, remo e vela — e iniciou a prática adaptada da canoagem, tornando-se pioneira no Brasil no que hoje é reconhecido como paracanoagem.</p>
+      <p>Mais de duas décadas depois, a ACEN segue com a missão de popularizar a canoagem na Serra Gaúcha, unindo alto rendimento, inclusão e formação humana em um único lago.</p>
+      <div class="missao-tag">
+        <span class="eyebrow">Missão</span>
+        <p>Popularizar a canoagem na Serra Gaúcha, formando atletas e transformando vidas através do esporte náutico.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">O que nosso estatuto determina</span>
+      <div class="pillars" style="margin-top:16px;">
+        <div class="pillar"><span class="pillar-num">01</span><div><h4>Desenvolvimento humano e social</h4><p>Promover o desenvolvimento humano e atuar na assistência social, com ações voltadas a públicos em situação de vulnerabilidade.</p></div></div>
+        <div class="pillar"><span class="pillar-num">02</span><div><h4>Esporte, educação e cultura</h4><p>Desenvolver atividades esportivas, educacionais, culturais e sociais, promovendo cursos, eventos e certificações.</p></div></div>
+        <div class="pillar"><span class="pillar-num">03</span><div><h4>Canoagem e modalidades náuticas</h4><p>Desenvolver a canoagem e demais modalidades náuticas e terrestres associadas ao esporte.</p></div></div>
+        <div class="pillar"><span class="pillar-num">04</span><div><h4>Proteção ambiental</h4><p>Contribuir para a proteção ambiental do lago e do entorno onde a associação atua.</p></div></div>
+        <div class="pillar"><span class="pillar-num">05</span><div><h4>Estudos, projetos e parcerias</h4><p>Promover estudos e pesquisas, gerir programas e projetos, e congregar esforços com outras entidades e editais públicos.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VÍDEOS ================= -->
+<section class="videos" id="videos">
+  <div class="container">
+    <span class="eyebrow">A ACEN em movimento</span>
+    <h2>Veja a associação por dentro</h2>
+    <p class="lede">Do primeiro contato com o remo às disputas em competição — conheça a estrutura, os atletas e o dia a dia da ACEN no lago.</p>
+
+    <div class="video-principal reveal">
+      <iframe src="https://www.youtube-nocookie.com/embed/c23QIeYgJfk"
+        title="Vídeo institucional da ACEN — Associação Caxiense de Esportes Náuticos"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="reels-header reveal">
+      <div>
+        <h3>Nas redes</h3>
+        <p>Treinos, competições e bastidores publicados no nosso Instagram.</p>
+      </div>
+      <a class="btn btn-primary" href="https://instagram.com/canoagemcaxias" target="_blank" rel="noopener">Seguir @canoagemcaxias</a>
+    </div>
+
+    <div class="reels-grid">
+      <a class="reel-card reveal" href="https://www.instagram.com/reel/DbGmjUIRJC8/" target="_blank" rel="noopener">
+        <span class="reel-ig">Reel</span>
+        <span class="reel-inner">
+          <span class="reel-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="reel-label">Assistir no Instagram</span>
+          <span class="reel-sub">@canoagemcaxias</span>
+        </span>
+      </a>
+      <a class="reel-card reveal" href="https://www.instagram.com/reel/DZufl2-xdk-/" target="_blank" rel="noopener">
+        <span class="reel-ig">Reel</span>
+        <span class="reel-inner">
+          <span class="reel-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="reel-label">Assistir no Instagram</span>
+          <span class="reel-sub">@canoagemcaxias</span>
+        </span>
+      </a>
+      <a class="reel-card reveal" href="https://www.instagram.com/reel/DXb4l32h83Y/" target="_blank" rel="noopener">
+        <span class="reel-ig">Reel</span>
+        <span class="reel-inner">
+          <span class="reel-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="reel-label">Assistir no Instagram</span>
+          <span class="reel-sub">@canoagemcaxias</span>
+        </span>
+      </a>
+      <a class="reel-card reveal" href="https://www.instagram.com/reel/DYSBVOHNyZT/" target="_blank" rel="noopener">
+        <span class="reel-ig">Reel</span>
+        <span class="reel-inner">
+          <span class="reel-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="reel-label">Assistir no Instagram</span>
+          <span class="reel-sub">@canoagemcaxias</span>
+        </span>
+      </a>
+      <a class="reel-card reveal" href="https://www.instagram.com/reel/DUIx4LQEb73/" target="_blank" rel="noopener">
+        <span class="reel-ig">Reel</span>
+        <span class="reel-inner">
+          <span class="reel-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="reel-label">Assistir no Instagram</span>
+          <span class="reel-sub">@canoagemcaxias</span>
+        </span>
+      </a>
+      <a class="reel-card reveal" href="https://www.instagram.com/reel/DDXYJ7SRJD9/" target="_blank" rel="noopener">
+        <span class="reel-ig">Reel</span>
+        <span class="reel-inner">
+          <span class="reel-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="reel-label">Assistir no Instagram</span>
+          <span class="reel-sub">@canoagemcaxias</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MODALIDADES ================= -->
+<section class="modalidades" id="modalidades">
+  <div class="container">
+    <span class="eyebrow">Do iniciante ao competitivo</span>
+    <h2>Modalidades náuticas para todas as idades</h2>
+    <p class="lede">Toda a estrutura e os equipamentos são fornecidos pela ACEN — do primeiro remo até a preparação para competições.</p>
+    <div class="mod-grid">
+      <div class="mod-card reveal"><span class="mod-tag">Velocidade</span><h4>Canoagem Velocidade</h4><p>A base do alto rendimento da ACEN, com histórico de sediar seleções brasileiras e formar campeões nacionais e internacionais.</p></div>
+      <div class="mod-card reveal"><span class="mod-tag">Resistência</span><h4>Canoagem Maratona</h4><p>Provas de longa distância, com títulos por equipe conquistados em campeonatos brasileiros.</p></div>
+      <div class="mod-card reveal"><span class="mod-tag">Coletivo</span><h4>Dragon Boat</h4><p>Remada em equipe, ritmo e sincronia — uma das modalidades coletivas mais procuradas da associação.</p></div>
+      <div class="mod-card reveal"><span class="mod-tag">Polinésia</span><h4>Va'a</h4><p>Modalidade introduzida pela ACEN em 2015, unindo tradição polinésia e comunidade no lago.</p></div>
+      <div class="mod-card reveal"><span class="mod-tag">Equilíbrio</span><h4>Stand Up Paddle (SUP)</h4><p>Também iniciada em 2015, é hoje uma das portas de entrada mais procuradas por quem busca lazer ativo.</p></div>
+      <div class="mod-card reveal"><span class="mod-tag">Inclusão</span><h4>Paracanoagem</h4><p>Nascida dentro da própria ACEN como canoagem adaptada, é hoje uma das modalidades de maior orgulho da entidade — com prata mundial conquistada em 2009.</p></div>
+    </div>
+    <div class="equipe-tecnica reveal">
+      <div><h4>Equipe técnica</h4><p>Formada por ex-atletas experientes, com formação em Educação Física, responsáveis pela preparação de todas as modalidades da ACEN.</p></div>
+      <div class="equipe-nomes">Michel De Carli<br>Adam Rech<br>Marcos Scolaro<br>Paulo Machado</div>
+    </div>
+    <div class="mod-cta reveal">
+      <a class="btn btn-dark" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20teste%20na%20ACEN." target="_blank" rel="noopener">Experimente com uma aula teste</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJETO EQUIPE DE CANOAGEM ================= -->
+<section class="projeto">
+  <div class="container projeto-inner">
+    <div class="reveal">
+      <span class="eyebrow">Formação de base · Impacto social</span>
+      <h2>Projeto Equipe de Canoagem</h2>
+      <p>De segunda a sexta-feira, a ACEN recebe jovens de 8 a 16 anos para treinar canoagem com todo o equipamento fornecido pela associação — remo, embarcação e acompanhamento técnico incluídos. É aqui que nascem os próximos atletas da Serra Gaúcha, e é aqui que o esporte transforma rotinas, disciplina e horizontes.</p>
+    </div>
+    <div class="projeto-facts reveal">
+      <div class="fact-row"><span>Público</span><span>8 a 16 anos</span></div>
+      <div class="fact-row"><span>Dias</span><span>Segunda a sexta</span></div>
+      <div class="fact-row"><span>Horário</span><span>13h30 às 17h30</span></div>
+      <div class="fact-row"><span>Equipamentos</span><span>Fornecidos pela ACEN</span></div>
+      <div class="fact-row"><span>Atletas ativos</span><span>18</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULTADOS ESPORTIVOS ================= -->
+<section class="resultados" id="resultados">
+  <div class="container">
+    <span class="eyebrow">Levantamento oficial CBCa</span>
+    <h2>Mais de 800 pódios em duas décadas</h2>
+    <p class="lede">Levantamento sobre os resultados oficiais da Confederação Brasileira de Canoagem (CBCa), considerando apenas colocações entre 1º e 3º lugar em Finais — de Campeonatos Brasileiros e Copa Brasil a competições internacionais.</p>
+    <div class="resultados-grid">
+      <div class="resultado-cell reveal"><div class="num">848</div><div class="label">Pódios em Finais</div></div>
+      <div class="resultado-cell reveal"><div class="num">273</div><div class="label">Medalhas de Ouro</div></div>
+      <div class="resultado-cell reveal"><div class="num">333</div><div class="label">Medalhas de Prata</div></div>
+      <div class="resultado-cell reveal"><div class="num">242</div><div class="label">Medalhas de Bronze</div></div>
+    </div>
+    <p class="resultados-split reveal"><b>581</b> pódios em competições nacionais (Campeonato Brasileiro e Copa Brasil) · <b>267</b> pódios em competições internacionais (Sul-americano, Pan-americano, Jogos Sul-Americanos, Copa do Mundo e Mundial)</p>
+    <div class="missao-tag reveal">
+      <span class="eyebrow">Maior resultado internacional</span>
+      <p>Prata no Mundial de Paracanoagem — Sebastião "Tião" Abreu, K1 200m (classe LTA), Campeonato Mundial Sênior de Canoagem Velocidade, Dartmouth, Canadá, 2009.
+      <span class="fonte">Fonte: relatório de resultados CBCa, 1995–2026.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HISTÓRIA ================= -->
+<section class="historia" id="historia">
+  <div class="container">
+    <span class="eyebrow">Linha do tempo</span>
+    <h2>23 anos remando junto com a Serra Gaúcha</h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <span class="tl-year">2016–2019</span>
+        <h4>Projeto Remadas Solidárias</h4>
+        <p>Realização do projeto Remadas Solidárias, unindo esporte náutico e ação social na comunidade da Serra Gaúcha.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2015</span>
+        <h4>Pioneirismo em Va'a e SUP no Rio Grande do Sul</h4>
+        <p>A ACEN foi pioneira no estado ao introduzir duas novas modalidades náuticas: va'a e stand up paddle.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2015</span>
+        <h4>Filiação à Federação Gaúcha de Canoagem</h4>
+        <p>A associação passa a integrar oficialmente a FGC, fortalecendo sua presença no cenário estadual.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2009</span>
+        <h4>Prata mundial com Sebastião "Tião" Abreu</h4>
+        <p>O paratleta formado pela ACEN conquistou a medalha de prata no K1 200m Paracanoagem (classe LTA) do Campeonato Mundial Sênior de Canoagem Velocidade, em Dartmouth, no Canadá — o resultado internacional de maior destaque da história da entidade.</p>
+        <span class="badge">Prata no Mundial</span>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2008–2011</span>
+        <h4>Centro de treinamento da seleção brasileira masculina</h4>
+        <p>A ACEN sediou o centro de treinamento da seleção brasileira masculina de canoagem velocidade.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2004–2011</span>
+        <h4>Centro de treinamento da seleção brasileira feminina</h4>
+        <p>Durante oito temporadas, a ACEN foi o centro de treinamento da seleção brasileira feminina de canoagem velocidade.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2004–2005</span>
+        <h4>Centro de treinamento da seleção gaúcha masculina</h4>
+        <p>A associação também sediou o centro de treinamento da seleção gaúcha masculina de canoagem velocidade.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2004</span>
+        <h4>Execução do Projeto Navegar</h4>
+        <p>Início da execução do Projeto Navegar, programa federal de iniciação em canoagem, remo e vela.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2004</span>
+        <h4>Início do projeto social de formação de atletas</h4>
+        <p>Nasce o projeto social de formação de atletas de canoagem velocidade, origem da atual Equipe de Canoagem de base.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2004</span>
+        <h4>Pioneirismo da paracanoagem no Brasil</h4>
+        <p>A ACEN inicia a prática adaptada da canoagem, tornando-se pioneira no Brasil no que hoje é reconhecido como paracanoagem.</p>
+        <span class="badge">Pioneira nacional</span>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2002</span>
+        <h4>Filiação à Confederação Brasileira de Canoagem</h4>
+        <p>Desde sua origem, a ACEN integra oficialmente a CBCa, entidade máxima da canoagem nacional.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2002</span>
+        <h4>Fundação da ACEN</h4>
+        <p>Em 21 de dezembro de 2002, praticantes de canoagem de Caxias do Sul fundam a Associação Caxiense de Esportes Náuticos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PATROCÍNIO ================= -->
+<section class="patrocinio" id="patrocinio">
+  <div class="container">
+    <span class="eyebrow">Para empresas</span>
+    <h2>Associe sua marca a uma história vencedora</h2>
+    <p class="lede">Patrocinar a ACEN é investir em esporte de alto rendimento, formação de base e inclusão — com uma história de resultados documentada e mais de duas décadas de presença na Serra Gaúcha.</p>
+    <div class="patro-grid">
+      <div class="patro-card reveal">
+        <div class="icon">🏆</div>
+        <h4>Resultados comprovados</h4>
+        <p>848 pódios em Finais registrados pela CBCa, incluindo prata mundial, conquistas pan-americanas e sul-americanas. Sua marca ao lado de vencedores.</p>
+      </div>
+      <div class="patro-card reveal">
+        <div class="icon">🤝</div>
+        <h4>Impacto social real</h4>
+        <p>Projeto de base gratuito com jovens de 8 a 16 anos, pioneirismo na paracanoagem e no esporte para idosos. Associação sem fins lucrativos com finalidade social estatutária.</p>
+      </div>
+      <div class="patro-card reveal">
+        <div class="icon">📍</div>
+        <h4>Presença regional única</h4>
+        <p>A principal referência de esportes náuticos da Serra Gaúcha, com 90 associados ativos, 6 modalidades e atividades semanais durante o ano inteiro.</p>
+      </div>
+    </div>
+    <div class="patro-cta reveal">
+      <div>
+        <h3>Vamos conversar sobre parceria?</h3>
+        <p>Apresentamos propostas de patrocínio e apoio sob medida para a sua empresa — com contrapartidas de visibilidade e relacionamento com a comunidade náutica.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Represento%20uma%20empresa%20e%20quero%20conversar%20sobre%20patroc%C3%ADnio%20%C3%A0%20ACEN." target="_blank" rel="noopener">Falar sobre patrocínio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANOS ================= -->
+<section class="planos" id="planos">
+  <div class="container">
+    <span class="eyebrow">Como participar</span>
+    <h2>Planos anuais para todos os ritmos</h2>
+    <p class="lede">Da iniciação livre ao acompanhamento técnico individualizado. Valores e vagas para aula teste são combinados diretamente pelo WhatsApp.</p>
+    <div class="plano-grid">
+      <div class="plano-card reveal"><span class="tag">Entrada</span><h4>Matrícula</h4><ul><li>Avaliação inicial</li><li>Cadastro anual</li><li>Acesso à estrutura da ACEN</li></ul><a class="plano-consulte" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20matr%C3%ADcula%20na%20ACEN." target="_blank" rel="noopener">Consulte no WhatsApp</a></div>
+      <div class="plano-card reveal"><span class="tag">1x por semana</span><h4>Plano Semanal</h4><ul><li>1 treino por semana</li><li>Equipamentos inclusos</li><li>Ideal para iniciantes</li></ul><a class="plano-consulte" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20de%201x%20por%20semana." target="_blank" rel="noopener">Consulte no WhatsApp</a></div>
+      <div class="plano-card reveal"><span class="tag">2x por semana</span><h4>Plano Intermediário</h4><ul><li>2 treinos por semana</li><li>Evolução técnica contínua</li><li>Equipamentos inclusos</li></ul><a class="plano-consulte" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20de%202x%20por%20semana." target="_blank" rel="noopener">Consulte no WhatsApp</a></div>
+      <div class="plano-card destaque reveal"><span class="tag">Livre + individualizado</span><h4>Plano Performance</h4><ul><li>Acesso livre aos treinos</li><li>Acompanhamento técnico individualizado</li><li>Foco competitivo</li></ul><a class="plano-consulte" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20Performance." target="_blank" rel="noopener">Consulte no WhatsApp</a></div>
+    </div>
+    <div class="planos-cta">
+      <a class="btn btn-primary" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20teste%20na%20ACEN." target="_blank" rel="noopener">Agendar aula teste no WhatsApp</a>
+      <p class="planos-nota">Sem compromisso — venha conhecer o lago, a estrutura e a equipe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="contato" id="contato">
+  <div class="container">
+    <span class="eyebrow">Venha remar com a gente</span>
+    <h2>Contato e localização</h2>
+    <div class="contato-grid">
+      <div class="contato-info reveal">
+        <div class="info-row"><span class="k">Endereço</span><span class="v">Rua Ciro de Lavra Pinto, 818, Interlagos, Caxias do Sul – RS<br>Acesso pelo Centro Esportivo do SESI</span></div>
+        <div class="info-row"><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/5554996117492" target="_blank" rel="noopener">+55 54 99611-7492</a></span></div>
+        <div class="info-row"><span class="k">E-mail</span><span class="v"><a href="mailto:acencanoagem@gmail.com">acencanoagem@gmail.com</a></span></div>
+        <div class="info-row"><span class="k">Instagram</span><span class="v"><a href="https://instagram.com/canoagemcaxias" target="_blank" rel="noopener">@canoagemcaxias</a></span></div>
+        <div class="info-row"><span class="k">Filiação</span><span class="v">Federação Gaúcha de Canoagem · Confederação Brasileira de Canoagem</span></div>
+      </div>
+      <div class="reveal">
+        <iframe class="mapa-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Rua+Ciro+de+Lavra+Pinto,+818,+Interlagos,+Caxias+do+Sul+-+RS&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand"><img src="logo-white.png" alt="ACEN"><span>© 2026 Associação Caxiense de Esportes Náuticos · CNPJ 05.488.934/0001-38</span></div>
+    <span><a href="https://instagram.com/canoagemcaxias" target="_blank" rel="noopener">Instagram</a> · <a href="https://wa.me/5554996117492" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:acencanoagem@gmail.com">E-mail</a></span>
+  </div>
+</footer>
+
+<a class="whats-float" href="https://wa.me/5554996117492?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20ACEN." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.59-1.68a12.74 12.74 0 0 0 6.21 1.6h.01c7.06 0 12.79-5.74 12.79-12.8s-5.74-12.72-12.8-12.72zm0 23.36h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.91 1 1.04-3.81-.25-.39a10.55 10.55 0 0 1-1.63-5.65c0-5.86 4.77-10.62 10.64-10.62 2.84 0 5.5 1.1 7.51 3.11a10.56 10.56 0 0 1 3.11 7.52c0 5.86-4.77 10.55-10.71 10.55zm5.83-7.95c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.25 3.44 5.45 4.82.76.33 1.36.53 1.82.67.77.24 1.47.21 2.02.13.62-.09 1.89-.77 2.16-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/></svg>
+</a>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
