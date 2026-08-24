@@ -195,6 +195,67 @@
   }
   .cal-obs{margin-top:24px; font-size:13px; color:#5A6E69; font-weight:300;}
 
+  /* ================= RESULTADOS RECENTES ================= */
+  .recentes{padding:100px 0; background:var(--menta);}
+  .rec-lista{display:flex; flex-direction:column; gap:28px; margin-top:44px;}
+  .rec-card{
+    background:var(--branco); border:1px solid var(--menta-escura); border-radius:6px;
+    overflow:hidden; display:grid; grid-template-columns:42% 1fr;
+  }
+  .rec-card:nth-child(even){grid-template-columns:1fr 42%;}
+  .rec-card:nth-child(even) .rec-foto{order:2;}
+  .rec-card:nth-child(even) .rec-corpo{order:1;}
+  .rec-foto{overflow:hidden; background:var(--menta-escura); min-height:260px;}
+  .rec-foto img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  /* carrossel dentro do card */
+  .rec-carrossel{position:relative; overflow:hidden; background:var(--menta-escura); min-height:260px;}
+  .rec-slides{display:flex; transition:transform .4s ease; height:100%;}
+  .rec-slides .rec-slide{min-width:100%; height:100%;}
+  .rec-slides .rec-slide img{width:100%; height:100%; object-fit:cover; display:block; min-height:260px;}
+  .rec-seta{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(1,78,68,0.82); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:18px;
+    z-index:3; transition:background .2s;
+  }
+  .rec-seta:hover{background:var(--verde-profundo);}
+  .rec-seta.prev{left:12px;}
+  .rec-seta.next{right:12px;}
+  .rec-dots{position:absolute; bottom:12px; left:0; right:0; display:flex; justify-content:center; gap:7px; z-index:3;}
+  .rec-dot{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.55); border:none; cursor:pointer; padding:0;}
+  .rec-dot.ativo{background:var(--lima);}
+  .rec-corpo{padding:32px 34px; display:flex; flex-direction:column; justify-content:center;}
+  .rec-meta{display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;}
+  .rec-data{
+    font-family:var(--heading); font-weight:800; font-size:12px;
+    color:var(--verde-profundo); background:var(--lima); padding:5px 11px; border-radius:3px;
+  }
+  .rec-local{font-size:13px; color:#5A6E69; font-weight:300;}
+  .rec-card h4{font-size:22px; color:var(--carvao); margin-bottom:12px; line-height:1.2;}
+  .rec-texto{font-size:14.5px; color:#3D5854; font-weight:300; margin-bottom:16px;}
+  .rec-resultados{list-style:none;}
+  .rec-resultados li{
+    display:flex; align-items:center; gap:10px;
+    font-size:14px; color:#3D5854; padding:7px 0; border-bottom:1px dashed var(--menta-escura);
+  }
+  .rec-resultados li:last-child{border-bottom:none;}
+  .rec-medalha{
+    font-family:var(--heading); font-weight:800; font-size:11px;
+    padding:3px 9px; border-radius:20px; white-space:nowrap; flex-shrink:0;
+  }
+  .m-ouro{background:#FFF3C4; color:#8A6520;}
+  .m-prata{background:#EDEDED; color:#555;}
+  .m-bronze{background:#F3DCC4; color:#8A5A2B;}
+  @media (max-width:800px){
+    .rec-card, .rec-card:nth-child(even){grid-template-columns:1fr;}
+    .rec-card:nth-child(even) .rec-foto{order:0;}
+    .rec-card:nth-child(even) .rec-corpo{order:0;}
+    .rec-foto{min-height:auto; aspect-ratio:16/9;}
+  }
+  .rec-obs{margin-top:26px; font-size:13px; color:#5A6E69; font-weight:300;}
+
   /* ================= VÍDEOS ================= */
   .videos{padding:110px 0; background:var(--carvao); color:var(--menta);}
   .videos h2{color:var(--branco);}
@@ -563,10 +624,11 @@
       <ul id="navList">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#calendario">Agenda</a></li>
+        <li><a href="#ultimos-resultados">Resultados</a></li>
         <li><a href="#videos">Vídeos</a></li>
         <li><a href="#modalidades">Modalidades</a></li>
         <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#resultados">Conquistas</a></li>
         <li><a href="#historia">História</a></li>
         <li><a href="#patrocinio">Patrocínio</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -649,6 +711,64 @@
       </div>
     </div>
     <p class="cal-obs">Datas sujeitas a alteração. Para confirmar inscrições e detalhes, fale conosco pelo WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ================= RESULTADOS RECENTES ================= -->
+<section class="recentes" id="ultimos-resultados">
+  <div class="container">
+    <span class="eyebrow">Últimos resultados</span>
+    <h2>ACEN em destaque</h2>
+    <p class="lede">Os destaques mais recentes dos nossos atletas nas competições que participamos.</p>
+    <div class="rec-lista">
+
+      <!-- ===== CARD DE EXEMPLO — copie este bloco e troque os dados para adicionar uma nova competição ===== -->
+      <div class="rec-card reveal">
+        <div class="rec-carrossel" data-carrossel>
+          <div class="rec-slides">
+            <div class="rec-slide"><img src="fotos/result-vaa-catarinense.jpg" alt="Gabriel Salvati e Jeferson Silva com medalhas no Campeonato Catarinense de Va'a" loading="lazy"></div>
+            <div class="rec-slide"><img src="fotos/result-vaa-oc1.jpg" alt="Atleta da ACEN competindo de OC1 em Bombinhas" loading="lazy"></div>
+          </div>
+          <button class="rec-seta prev" aria-label="Foto anterior">‹</button>
+          <button class="rec-seta next" aria-label="Próxima foto">›</button>
+          <div class="rec-dots">
+            <button class="rec-dot ativo" aria-label="Foto 1"></button>
+            <button class="rec-dot" aria-label="Foto 2"></button>
+          </div>
+        </div>
+        <div class="rec-corpo">
+          <div class="rec-meta">
+            <span class="rec-data">22–23/08/2026</span>
+            <span class="rec-local">Bombinhas – SC</span>
+          </div>
+          <h4>Campeonato Catarinense de Va'a</h4>
+          <p class="rec-texto">Atletas da ACEN conquistaram medalhas na etapa válida pelo Campeonato Catarinense de Va'a, realizada em Bombinhas.</p>
+          <ul class="rec-resultados">
+            <li><span class="rec-medalha m-bronze">Bronze</span> OC1 Amador 7 km — Gabriel Salvati</li>
+            <li><span class="rec-medalha m-bronze">Bronze</span> OC1 Pró 15 km — Jeferson Silva</li>
+          </ul>
+        </div>
+      </div>
+      <!-- ===== FIM DO CARD DE EXEMPLO ===== -->
+
+      <!-- Segundo card (foto inverte de lado automaticamente) -->
+      <div class="rec-card reveal">
+        <div class="rec-foto"><img src="fotos/result-k2-brasileiro.jpg" alt="Atletas do Projeto Equipe de Canoagem da ACEN em K2" loading="lazy"></div>
+        <div class="rec-corpo">
+          <div class="rec-meta">
+            <span class="rec-data">Setembro/2026</span>
+            <span class="rec-local">Campeonato nacional</span>
+          </div>
+          <h4>Campeonato Brasileiro de Canoagem Velocidade</h4>
+          <p class="rec-texto">Atletas do Projeto Equipe de Canoagem ACEN / Prefeitura de Caxias do Sul viajam esta semana para o principal evento da modalidade no país. Ismael Lopes e Artur Belmudes competem nas categorias K2 e K1, nas distâncias de 1000 m e 3000 m.</p>
+          <ul class="rec-resultados">
+            <li><span class="rec-medalha m-prata" style="background:rgba(1,78,68,0.1);color:#014E44;">Em breve</span> Aguardando os resultados da competição</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <p class="rec-obs">Acompanhe os resultados da ACEN também pelo nosso Instagram <a href="https://instagram.com/canoagemcaxias" target="_blank" rel="noopener" style="color:var(--verde-profundo);font-weight:600;">@canoagemcaxias</a>.</p>
   </div>
 </section>
 
@@ -1098,6 +1218,22 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   revealEls.forEach(el => io.observe(el));
+
+  // carrossel de fotos nos cards de resultado
+  document.querySelectorAll('[data-carrossel]').forEach(car => {
+    const slides = car.querySelector('.rec-slides');
+    const total = slides.children.length;
+    const dots = car.querySelectorAll('.rec-dot');
+    let atual = 0;
+    function ir(i){
+      atual = (i + total) % total;
+      slides.style.transform = `translateX(-${atual*100}%)`;
+      dots.forEach((d,k) => d.classList.toggle('ativo', k===atual));
+    }
+    car.querySelector('.prev').addEventListener('click', () => ir(atual-1));
+    car.querySelector('.next').addEventListener('click', () => ir(atual+1));
+    dots.forEach((d,k) => d.addEventListener('click', () => ir(k)));
+  });
 </script>
 
 </body>
